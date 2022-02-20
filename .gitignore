@@ -1,0 +1,10 @@
+*.class
+/*.class
+.cph/
+.vscode/
+.metadata/
+/bin/
+/out/
+.setting/
+.classpath/
+.project/
