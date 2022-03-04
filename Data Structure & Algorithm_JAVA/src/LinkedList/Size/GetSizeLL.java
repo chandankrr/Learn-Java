@@ -1,4 +1,4 @@
-package LinkedList.Insertion.InsertAtStart;
+package LinkedList.Size;
 
 class Node {
     int data;
@@ -14,7 +14,7 @@ class Linked {
         return a;
     }
 
-    public Node insert(Node node, int key) {
+    Node insert(Node node, int key) {
         if (node == null)
             return getNewNode(key);
 
@@ -22,14 +22,11 @@ class Linked {
         return node;
     }
 
-    public Node insertAtStart(Node node, int key){
+    int getSizeLL(Node node) {
         if (node == null)
-            return getNewNode(key);
+            return 0;
 
-        Node newNode = getNewNode(key);
-        newNode.data = key;
-        newNode.next = node;
-        return newNode;
+        return 1 + getSizeLL(node.next);
     }
 
     void printList(Node node) {
@@ -40,24 +37,23 @@ class Linked {
         printList(node.next);
     }
 
-
 }
 
-public class InsertElementAtStart {
+public class GetSizeLL {
 
     public static void main(String[] args) {
         Node root = null;
 
         Linked a = new Linked();
-        root = a.insert(root, 1);
         root = a.insert(root, 2);
         root = a.insert(root, 3);
-        root = a.insert(root, 4);
         root = a.insert(root, 5);
-
-        root = a.insertAtStart(root, 10);
+        root = a.insert(root, 7);
+        root = a.insert(root, 11);
 
         a.printList(root);
         System.out.println();
+
+        System.out.println(a.getSizeLL(root));
     }
 }
